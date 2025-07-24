@@ -10,7 +10,7 @@ variable "container_name" {
   default     = "nginx"
 }
 
-variable "host_port" {
+variable "nginx_port" {
   description = "Port auf dem Host, auf den NGINX gemappt wird"
   type        = number
   default     = 8080

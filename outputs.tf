@@ -5,5 +5,5 @@ output "container_id" {
 
 output "nginx_url" {
   description = "Die URL, unter der NGINX erreichbar ist"
-  value       = "http://localhost:${var.host_port}"
+  value       = "http://localhost:${var.nginx_port}"
 }
