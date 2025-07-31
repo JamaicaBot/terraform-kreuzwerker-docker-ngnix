@@ -7,9 +7,26 @@ terraform {
   }
 }
 
+resource "docker_image" "nginx_image" {
+  name = var.image_name
+}
 
+resource "docker_container" "nginx_container" {
+  name  = var.container_name
+  image = docker_image.nginx_image.image_id
 
-module "docker-ngnix" {
-  source  = "JamaicaBot/docker-ngnix/kreuzwerker"
-  version = "2.0.0"
+  restart = "unless-stopped"
+
+  ports {
+    internal = var.port
+    external = var.port
+  }
+
+  # Nginx environment variables
+  env = [
+    "DB_HOST=${var.db_container_id}",
+    "DB_PORT=${var.db_port}",
+    "DB_HOST=${var.db_host}",
+    "DB_PASSWORD=${var.db_password}"
+  ]
 }
