@@ -8,8 +8,14 @@ variable "container_name" {
   type        = string
 }
 
-variable "port" {
-  description = "Port to expose for the nginx container"
+variable "internal_port" {
+  description = "Internal port to expose for the nginx container"
+  type        = number
+  default     = 80
+}
+
+variable "external_port" {
+  description = "External port to expose for the nginx container"
   type        = number
   default     = 80
 }

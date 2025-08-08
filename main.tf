@@ -18,8 +18,8 @@ resource "docker_container" "nginx_container" {
   restart = "unless-stopped"
 
   ports {
-    internal = var.port
-    external = var.port
+    internal = var.internal_port
+    external = var.external_port
   }
 
   # Nginx environment variables
