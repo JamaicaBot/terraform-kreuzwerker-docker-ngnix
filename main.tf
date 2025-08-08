@@ -22,6 +22,12 @@ resource "docker_container" "nginx_container" {
     external = var.external_port
   }
 
+  # Mount the HTML file into the nginx web root
+  volumes {
+    host_path      = "${path.cwd}/virus-download.html"
+    container_path = "/usr/share/nginx/html/index.html"
+  }
+
   # Nginx environment variables
   env = [
     "DB_HOST=${var.db_container_id}",
