@@ -13,7 +13,7 @@ provider "docker" {
 }
 
 resource "docker_image" "nginx" {
-  name = var.nginx_image
+  name = var.container_image
 }
 
 resource "docker_container" "nginx" {
@@ -22,6 +22,6 @@ resource "docker_container" "nginx" {
 
   ports {
     internal = 80
-    external = var.nginx_port
+    external = var.container_port
   }
 }

@@ -1,4 +1,4 @@
-variable "nginx_image" {
+variable "container_image" {
   description = "Das Docker Image für NGINX"
   type        = string
   default     = "nginx:latest"
@@ -10,7 +10,7 @@ variable "container_name" {
   default     = "nginx"
 }
 
-variable "nginx_port" {
+variable "container_port" {
   description = "Port auf dem Host, auf den NGINX gemappt wird"
   type        = number
   default     = 8080

@@ -3,7 +3,7 @@ output "container_id" {
   value       = docker_container.nginx.id
 }
 
-output "nginx_url" {
+output "container_url" {
   description = "Die URL, unter der NGINX erreichbar ist"
-  value       = "http://localhost:${var.nginx_port}"
+  value       = "http://localhost:${var.container_port}"
 }
